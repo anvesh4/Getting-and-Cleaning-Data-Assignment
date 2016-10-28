@@ -1,5 +1,5 @@
 ##Code Book
-This is a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data.
+This is a code book that describes the data,indicates all the variables,summaries calculated and other data transformations done in order to get the tidy data.
 
 ##Obtaining Data
 The data that is used in the project :https://d396qusza40orc.cloudfront.net/getdata%2Fproject엿꽯les%2FUCI%20HAR%20Dataset.zip
