@@ -61,6 +61,7 @@ You should create one R script called run_analysis.R that does the following.
 - Uses descriptive activity names to name the activities in the data set.
 - Extracts only the measurements on the mean and standard deviation for each measurement.
 - Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+-This data is then written into a text file using write.table function.
 
 Discarded data:
 The data in the Inertial Signals folder for both the test and the training dataset has been discarded as they have no variable names.
