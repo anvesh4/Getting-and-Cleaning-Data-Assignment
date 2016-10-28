@@ -51,7 +51,8 @@ Library(dplyr)
 mean_stdData<- select(mergedData2,contains("subject"), contains("activity"), contains("mean"), contains("std"))
 str(mean_stdData)
 
-## point 5: From the data set in point 4, creating a second, independent tidy d##ata set with the average of each variable for each activity and each subjec##t.
+## point 5: From the data set in point 4, creating a second, independent tidy data set with the average of 
+##          each variable for each activity and each subject.
 run_analysis<- (mean_stdData %>% group_by(subject,ActivityName) %>% summarise_each(funs( mean)))
 > str(run_analysis)
 
