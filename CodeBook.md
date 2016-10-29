@@ -15,16 +15,16 @@ This is a code book that describes the data,indicates all the variables and othe
 ## How the data was cleaned?
 I first loaded the data and gave it variable names,merged the subject data(subject_train and subject_test),feature measurement data(x_train and x_test) and activities data(y_train and y_test).I gave column names to the loaded data.I then merged the merged activity data with the merged measurement data.To this data I merged the merged subject data.
 
-Then I merged this data to the activity_labels data so as to use descriptive activity names to name the activities in the data set.This merged data was named as mergedData2 by me.
+Then I merged this data to the activity_labels data so as to use descriptive activity names to name the activities in the data set.This merged data was named as mergedData2.
 
-Then I extracted the mean and std columns along with the subject and activity from the mergedData2.This extracted/subsetted data was named as mean_stdData by me.
+Then I extracted the mean and std columns along with the subject and activity from the mergedData2.This extracted/subsetted data was named as mean_stdData.
 
-Then I created a tidy data set by writing a run_analysis code that would calculate the mean of the all the columns in mean_stdData by using the summary_each(mean) function of the dplyr package.Thus you will get the average of each variable for each activity and each subject.
+Then I created a tidy data set by writing a run_analysis code that would calculate the mean of the all the columns in "mean_stdData" data by using the summary_each(mean) function of the dplyr package.Thus you will get the average of each variable for each activity and each subject.
 
-Then I wrote this data to the TidyData.txt file.
+Then I wrote this data to the TidyData.txt file using the write.table function.
 
 Discarded data:
-The data in the Inertial Signals folder for both the test and the training dataset has been discarded as they have no variable names.
+The data in the Inertial Signals folder for both the test and the training dataset has been discarded as they have no column names.
 
 ## Variables used/created:
 X_test,y_test,subject_test,x_train,y_train,subject_train,features,activity_labels.These variables were created by loading the repsective training and testing data.
@@ -36,11 +36,15 @@ actvityID_measutrementsData(obtained my merging activityIDs.data,feature_measure
 mergedData2(obatined by merging Activity_labels and mergedData by merging the common "activity" column)
 
 mean_stdData(obtained by using the select statement and choosing all those columns having the word "subject","activity","mean","std"
->str(mean_stdData)
+
+str(mean_stdData)
+
 'data.frame':	10299 obs. of  89 variables:...
 
 run_analysis(obtained by grouping the subject and activity name by using the group_by function and calculating the average of average of each variable for each activity and each subject by using the summarise_each(mean) function.
-> str(run_analysis)
+
+str(run_analysis)
+
 Classes ‘grouped_df’, ‘tbl_df’, ‘tbl’ and 'data.frame':	180 obs. of  89 variables:...
 
 
