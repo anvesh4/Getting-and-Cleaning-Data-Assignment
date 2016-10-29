@@ -17,4 +17,4 @@ You should create one R script called run_analysis.R that does the following.
 
 ## Dependencies
 
-```run_analysis.R```  depends on ```dplyr```package.So this package must be installed by using the install.packages() function in case its not already installed. 
+```run_analysis.R```  depends on ```dplyr```package.So this package must be installed by using the install.packages() function in case its not already installed.
