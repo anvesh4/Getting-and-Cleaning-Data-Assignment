@@ -1,27 +1,27 @@
-## Loading data and checking out their dimensions
+## Intially setting the working directory
+setwd("~/R")
+## Downloading data
+if(!file.exists("./data")){dir.create("./data")}
+fileUrl <‐ "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileUrl,destfile="./data/Dataset.zip")
+
+##extract the data to data directory and then set the wroking directory to the extracted folder
+unzip(zipfile="./data/Dataset.zip",exdir="./data")
+setwd("~/R/data/UCI HAR Dataset")
+
+
+
+library(dplyr)
+
+## Loading data
 x_test  <- read.table("test/X_test.txt",header = F)
-dim(x_test)
-
 y_test  <- read.table("test/y_test.txt",header = F)
-dim(y_test)
-
 subject_test <- read.table("test/subject_test.txt",header = F)
-dim(subject_test)
-
 x_train  <- read.table("train/X_train.txt",header = F)
-dim(x_train)
-
 y_train  <- read.table("train/y_train.txt",header = F)
-dim(y_train)
-
 subject_train  <- read.table("train/subject_train.txt",header = F)
-dim(subject_train)
-
 features <- read.table("features.txt",header=F)
-dim(features)
-
 Activity_labels <- read.table("activity_labels.txt",header = F)
-dim(Activity_labels)
 
 ## merging training and testing subject data
 subject.data  <- rbind(subject_train,subject_test)
@@ -47,14 +47,11 @@ mergedData  <- cbind(subject.data,actvityID_measutrementsData)
 mergedData2 <- merge(Activity_labels,mergedData,by.x ='activity',by.y = 'activity')
 
 ## point 2: Extracting only the measurements on the mean and standard deviation for each measurement.
-Library(dplyr)
 mean_stdData<- select(mergedData2,contains("subject"), contains("activity"), contains("mean"), contains("std"))
-str(mean_stdData)
 
 ## point 5: From the data set in point 4, creating a second, independent tidy data set with the average of 
 ##          each variable for each activity and each subject.
 run_analysis<- (mean_stdData %>% group_by(subject,ActivityName) %>% summarise_each(funs( mean)))
-> str(run_analysis)
 
 ## Writing data to a text file
 write.table(run_analysis,"TidyData.txt",row.names = FALSE)
