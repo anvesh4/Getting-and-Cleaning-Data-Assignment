@@ -11,8 +11,6 @@ This is a code book that describes the data,indicates all the variables and othe
 - Extracts only the measurements on the mean and standard deviation for each measurement.
 - Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 - This data is then written into a text file using write.table function.
-Discarded data:
-The data in the Inertial Signals folder for both the test and the training dataset has been discarded as they have no variable names.
 
 ## How the data was cleaned?
 I first loaded the data and gave it variable names,merged the subject data(subject_train and subject_test),feature measurement data(x_train and x_test) and activities data(y_train and y_test).I gave column names to the loaded data.I then merged the merged activity data with the merged measurement data.To this data I merged the merged subject data.
@@ -25,6 +23,9 @@ Then I created a tidy data set by writing a run_analysis code that would calcula
 
 Then I wrote this data to the TidyData.txt file.
 
+Discarded data:
+The data in the Inertial Signals folder for both the test and the training dataset has been discarded as they have no variable names.
+
 ## Variables used/created:
 X_test,y_test,subject_test,x_train,y_train,subject_train,features,activity_labels.These variables were created by loading the repsective training and testing data.
 
@@ -35,7 +36,7 @@ actvityID_measutrementsData(obtained my merging activityIDs.data,feature_measure
 mergedData2(obatined by merging Activity_labels and mergedData by merging the common "activity" column)
 
 mean_stdData(obtained by using the select statement and choosing all those columns having the word "subject","activity","mean","std"
-str(mean_stdData)
+>str(mean_stdData)
 'data.frame':	10299 obs. of  89 variables:...
 
 run_analysis(obtained by grouping the subject and activity name by using the group_by function and calculating the average of average of each variable for each activity and each subject by using the summarise_each(mean) function.
